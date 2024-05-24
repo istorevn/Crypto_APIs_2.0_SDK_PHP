@@ -34,6 +34,7 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
+use GuzzleHttp\Query;
 use CryptoAPIs\ApiException;
 use CryptoAPIs\Configuration;
 use CryptoAPIs\HeaderSelector;
