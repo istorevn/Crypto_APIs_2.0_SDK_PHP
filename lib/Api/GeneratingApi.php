@@ -33,7 +33,6 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
-use Query;
 use GuzzleHttp\RequestOptions;
 use CryptoAPIs\ApiException;
 use CryptoAPIs\Configuration;
@@ -620,7 +619,7 @@ class GeneratingApi
 
             } else {
                 // for HTTP post (form)
-                $httpBody = Query::build($formParams);
+                $httpBody = http_build_query($formParams);
             }
         }
 
@@ -641,7 +640,7 @@ class GeneratingApi
             $headers
         );
 
-        $query = Query::build($queryParams);
+        $query = http_build_query($queryParams);
         return new Request(
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
